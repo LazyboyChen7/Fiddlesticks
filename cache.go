@@ -103,7 +103,7 @@ func (c *Cache) List() {
 // WithExpire .
 func WithExpire(dur time.Duration) Option {
 	if dur < 0 {
-		return nil
+		dur = time.Duration(0)
 	}
 	return func(n *node) {
 		now := time.Now().Add(dur * 1000000000)
